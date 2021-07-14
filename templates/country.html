@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix Data</title>
+  <!-- <link rel="stylesheet" href="/static/style1.css"> -->
+  <link rel="stylesheet" href="/static/style1.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="Resources/styles.css"/>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+<style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 25%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        h2 {text-align: center; color: red;}
+</style>
+
+</head>
+<body>
+  <h1 class="stop">
+    <marquee loop = "1" behavior="slide" scrollamount="150"> <img src="/static/header.png" alt = "NETFLIX DASHBOARD" ></marquee> </h1>  
+      
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!--left nav link-->
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+            <!--Right nav link-->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Charts
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/country">Countries</a>
+                        </li>
+                        <li>
+                            <a href="/releaseyear">Release Year</a>
+                        </li>
+                        <li>
+                            <a href="/directors">Directors</a>
+                        </li>
+                        <li>
+                            <a href="/map">Map</a>
+                        </li>
+                        <!-- <li>
+                            <a href="wind.html">Wind Speed</a>
+                        </li> -->
+                    </ul>
+                </li>
+                <!-- <li>
+                    <a href="comparison.html">Comparison</a>
+                </li> -->
+                <!-- <li>
+                    <a href="data.html">Data</a>
+                </li> -->
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<h2><i>Netflix Shows By Countries</i> </h2>
+  <div class="chart"></div>
+  
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="{{url_for('static', filename='app.js')}}"></script>
+  <!-- <script type="text/javascript" src="/static/app.js"></script> -->
+
+  <h3>Abbreviations</h3>
+
+
+<table cellpadding=0 cellspacing=0 width=232 style='border-collapse:
+ collapse;table-layout:fixed;width:174pt'>
+ <col width=92 style='mso-width-source:userset;mso-width-alt:3364;width:69pt'>
+ <col width=140 style='mso-width-source:userset;mso-width-alt:5120;width:105pt'>
+ 
+ <tr height=20 style='height:25.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>Code</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Name</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>AR</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Argentina</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>AU</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Australia</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>AT</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Austria</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>BD</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Bangladesh</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>BE</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Belgium</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>BR</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Brazil</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>BG</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Bulgaria</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>KH</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Cambodia</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>CA</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Canada</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>CL</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Chile</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>CN</td>
+  <td class=xl65 style='border-top:none;border-left:none'>China</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>CO</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Colombia</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>DK</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Denmark</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>EG</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Egypt</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>FR</td>
+  <td class=xl65 style='border-top:none;border-left:none'>France</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>DE</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Germany</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>GH</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Ghana</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>GT</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Guatemala</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>HK</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Hong Kong</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>HU</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Hungary</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>IS</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Iceland</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>IN</td>
+  <td class=xl65 style='border-top:none;border-left:none'>India</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>ID</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Indonesia</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>IE</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Ireland</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>IL</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Israel</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>IT</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Italy</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>JP</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Japan</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>KE</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Kenya</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>KW</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Kuwait</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>LB</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Lebanon</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>MY</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Malaysia</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>MX</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Mexico</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>NL</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Netherlands</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>NZ</td>
+  <td class=xl65 style='border-top:none;border-left:none'>New Zealand</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>NG</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Nigeria</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>NO</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Norway</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>PK</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Pakistan</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>PE</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Peru</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>PH</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Philippines</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>PL</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Poland</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>RO</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Romania</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>RU</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Russia</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>SA</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Saudi Arabia</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>SG</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Singapore</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>ZA</td>
+  <td class=xl65 style='border-top:none;border-left:none'>South Africa</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>KR</td>
+  <td class=xl65 style='border-top:none;border-left:none'>South Korea</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>ES</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Spain</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>SE</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Sweden</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>CH</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Switzerland</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>TW</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Taiwan</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>TH</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Thailand</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>TR</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Turkey</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>AE</td>
+  <td class=xl65 style='border-top:none;border-left:none'>United Arab Emirates</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>GB</td>
+  <td class=xl65 style='border-top:none;border-left:none'>United Kingdom</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>US</td>
+  <td class=xl65 style='border-top:none;border-left:none'>United States</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>UY</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Uruguay</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>VE</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Venezuela</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>VN</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Vietnam</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt;border-top:none'>ZW</td>
+  <td class=xl65 style='border-top:none;border-left:none'>Zimbabwe</td>
+ </tr>
+</body>
+</html>

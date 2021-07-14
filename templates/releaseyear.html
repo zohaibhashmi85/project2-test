@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix Data</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="Resources/styles.css"/>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+      <style>
+        h2 {text-align: center; color: red;}
+      
+        </style>
+</head>
+<body>
+    <h1 class="stop">
+<marquee loop = "1" behavior="slide" scrollamount="150"> <img src="/static/header.png" alt = "NETFLIX DASHBOARD" ></marquee> </h1>  
+  <!--Nav Bar-->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!--left nav link-->
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+            <!--Right nav link-->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Charts
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/country">Countries</a>
+                        </li>
+                        <li>
+                            <a href="/releaseyear">Release Year</a>
+                        </li>
+                        <li>
+                            <a href="/directors">Directors</a>
+                        </li>
+                        <li>
+                            <a href="/map">Map</a>
+                        </li>
+                        <!-- <li>
+                            <a href="wind.html">Wind Speed</a>
+                        </li> -->
+                    </ul>
+                </li>
+                <!-- <li>
+                    <a href="comparison.html">Comparison</a>
+                </li> -->
+                <!-- <li>
+                    <a href="data.html">Data</a>
+                </li> -->
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+
+<h2><i>Netflix Shows By Year</i> </h2>
+  <div class="chart"></div>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+  <!-- <script type="text/javascript" src="/static/app2.js"></script> -->
+  <script src="{{url_for('static', filename='app2.js')}}"></script>
+</body>
+</html>

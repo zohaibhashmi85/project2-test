@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix Data</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="Resources/styles.css"/>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+      <style>
+        h2 {text-align: left; color: red;}
+        p {text-align: justify; color: rgb(27, 14, 87); font-style: italic; font-size: larger;}
+      
+        </style>
+</head>
+<body>
+    <h1 class="stop">
+<marquee loop = "1" behavior="slide" scrollamount="150"> <img src="/static/header.png" alt = "NETFLIX DASHBOARD" ></marquee> </h1>  
+  <!--Nav Bar-->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!--left nav link-->
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+            <!--Right nav link-->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Charts
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/country">Countries</a>
+                        </li>
+                        <li>
+                            <a href="/releaseyear">Release Year</a>
+                        </li>
+                        <li>
+                            <a href="/directors">Directors</a>
+                        </li>
+                        <li>
+                            <a href="/map">Map</a>
+                        </li>
+                       
+                    </ul>
+                </li>
+                <!-- <li>
+                    <a href="comparison.html">Comparison</a>
+                </li> -->
+                <!-- <li>
+                    <a href="data.html">Data</a>
+                </li> -->
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+
+<h2><i>Netflix History</i> </h2>
+<p>Netflix, Inc. is an American over-the-top content platform and production company headquartered in Los Gatos, California. Netflix was founded in 1997 by Reed Hastings and Marc Randolph in Scotts Valley, California. The company's primary business is a subscription-based streaming service offering online streaming from a library of films and television series, including those produced in-house.</p><p> In April 2021, Netflix had 208 million subscribers, including 74 million in the United States and Canada. It is available worldwide except in mainland China (due to local restrictions), Syria, North Korea, and Crimea (due to US sanctions). The company has offices in Canada, France, Brazil, the Netherlands, India, Japan, South Korea, and the United Kingdom. Netflix is a member of the Motion Picture Association (MPA), producing and distributing content from countries all over the globe.
+    </p><p>Netflix's initial business model included DVD sales and rental by mail, but Hastings abandoned the sales about a year after the company's founding to focus on the initial DVD rental business. Netflix expanded its business in 2007 with the introduction of streaming media while retaining the DVD and Blu-ray rental business. The company expanded internationally in 2010 with streaming available in Canada, followed by Latin America and the Caribbean. </p><p> Netflix entered the content-production industry in 2013, debuting its first series House of Cards.
+    Since 2012, Netflix has taken more of an active role as producer and distributor for both film and television series, and to that end, offers a variety of "Netflix Original" content through its online library. By January 2016, Netflix services operated in more than 190 countries. Netflix released an estimated 126 original series and films in 2016, more than any other network or cable channel.</p><p> As of December 31, 2020, the company had $16 billion in long term debt, which it accumulated to fund its growth. The company is ranked 164th on the Fortune 500 and 284th on the Forbes Global 2000. On July 10, 2020, Netflix became the largest entertainment/media company by market capitalization. In 2021, Netflix was ranked as the 8th most trusted brand globally by Morning Consult. During the 2010s decade, Netflix was the top-performing stock in the S&P 500 stock market index, with a total return of 3,693%</p>
+  <!-- <div class="chart"></div> -->
+  <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script> -->
+  <!-- <script type="text/javascript" src="/static/app2.js"></script> -->
+  <!-- <script src="{{url_for('static', filename='app2.js')}}"></script> -->
+</body>
+</html>
